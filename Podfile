@@ -8,7 +8,7 @@ def rx_swift
 end
 
 target 'App' do
-  project 'App.xcodeproj'
+  project 'App/App.xcodeproj'
   use_frameworks!
   
   # Pods for App
