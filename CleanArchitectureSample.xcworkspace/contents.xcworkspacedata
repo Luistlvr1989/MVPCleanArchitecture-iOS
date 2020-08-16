@@ -2,9 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CleanArchitectureSample.xcodeproj">
+      location = "group:/Users/ltalavera/Documents/Code/iOS/CleanArchitectureSample/App.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Domain/Domain.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Data/Data.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:App.xcodeproj">
    </FileRef>
 </Workspace>
