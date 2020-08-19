@@ -7,12 +7,18 @@ def rx_swift
     pod 'RxSwift', '~> 5.1'
 end
 
+def remote
+    pod 'Alamofire'
+    pod 'RxAlamofire'
+end
+
 target 'App' do
   project 'App/App.xcodeproj'
   use_frameworks!
   
   # Pods for App
   rx_swift
+  pod 'Swinject'
 
   target 'AppTests' do
     inherit! :search_paths
@@ -33,6 +39,20 @@ target 'Domain' do
   rx_swift
 
   target 'DomainTests' do
+    inherit! :search_paths
+    #test_pods
+  end
+end
+
+target 'Data' do
+  project 'Data/Data.xcodeproj'
+  use_frameworks!
+
+  # Pods for Data
+  rx_swift
+  #remote
+
+  target 'DataTests' do
     inherit! :search_paths
     #test_pods
   end

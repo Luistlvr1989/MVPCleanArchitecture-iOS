@@ -8,11 +8,19 @@
 
 import UIKit
 import Domain
+import Data
+import Swinject
 
 class ViewController: UIViewController {
+    var getTasksUseCase: GetTasksUseCase!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirstUseCase.shared.testRun()
+        getTasksUseCase = Assembler.shared.resolver.resolve(GetTasksUseCase.self)
+        let subscription = getTasksUseCase.buildUseCase()
+            .subscribe { task in
+                print(task)
+            }
     }
 }
 

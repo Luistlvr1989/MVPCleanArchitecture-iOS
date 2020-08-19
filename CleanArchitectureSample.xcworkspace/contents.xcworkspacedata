@@ -13,10 +13,4 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:/Users/ltalavera/Documents/Code/iOS/CleanArchitectureSample/App.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:App.xcodeproj">
-   </FileRef>
 </Workspace>
