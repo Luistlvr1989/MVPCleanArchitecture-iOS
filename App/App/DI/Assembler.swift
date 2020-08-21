@@ -15,7 +15,8 @@ extension Assembler {
         let assembler = Assembler(
             [
                 DataAssembly(),
-                DomainAssembly()
+                DomainAssembly(),
+                PresentationAssembly()
             ],
             container: container
         )

@@ -17,6 +17,7 @@
 		4F3173A824EC6248002E0823 /* GetTasksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173A724EC6248002E0823 /* GetTasksUseCase.swift */; };
 		4F3173AA24EC634C002E0823 /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173A924EC634C002E0823 /* TaskEntity.swift */; };
 		4F3173AC24EC656A002E0823 /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173AB24EC656A002E0823 /* TaskRepository.swift */; };
+		4F3173E224EF2728002E0823 /* SaveTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173E124EF2728002E0823 /* SaveTaskUseCase.swift */; };
 		E64900E5AD3B2368A5324067 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D855DDFBD5E64439B393371B /* Pods_DomainTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		4F3173A724EC6248002E0823 /* GetTasksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTasksUseCase.swift; sourceTree = "<group>"; };
 		4F3173A924EC634C002E0823 /* TaskEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
 		4F3173AB24EC656A002E0823 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
+		4F3173E124EF2728002E0823 /* SaveTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTaskUseCase.swift; sourceTree = "<group>"; };
 		8339E4FCBD860E2D89418168 /* Pods-DomainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.debug.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85FC41A0B005EB39AD6092FE /* Pods_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AE3A449DD2F56F4404EF1B /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				4F3173A024EC5C42002E0823 /* Base */,
 				4F3173A724EC6248002E0823 /* GetTasksUseCase.swift */,
+				4F3173E124EF2728002E0823 /* SaveTaskUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				4F3173AC24EC656A002E0823 /* TaskRepository.swift in Sources */,
 				4F3173A624EC618E002E0823 /* ObservableUseCase.swift in Sources */,
 				4F3173A824EC6248002E0823 /* GetTasksUseCase.swift in Sources */,
+				4F3173E224EF2728002E0823 /* SaveTaskUseCase.swift in Sources */,
 				4F3173A224EC5C5C002E0823 /* CompletableUseCase.swift in Sources */,
 				4F3173AA24EC634C002E0823 /* TaskEntity.swift in Sources */,
 				4F3173A424EC60BF002E0823 /* SingleUseCase.swift in Sources */,

@@ -1,20 +1,56 @@
 PODS:
+  - Alamofire (5.2.2)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
+  - AlamofireNetworkActivityIndicator (3.1.0):
+    - Alamofire (~> 5.1)
+  - MBProgressHUD (1.2.0)
+  - ModelMapper (10.0.1):
+    - ModelMapper/Core (= 10.0.1)
+  - ModelMapper/Core (10.0.1)
+  - RxAlamofire (5.6.0):
+    - RxAlamofire/Core (= 5.6.0)
+  - RxAlamofire/Core (5.6.0):
+    - Alamofire (~> 5.1)
+    - RxSwift (~> 5.1)
   - RxSwift (5.1.1)
   - Swinject (2.7.1)
+  - TTGSnackbar (1.10.3)
 
 DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - AlamofireNetworkActivityIndicator
+  - MBProgressHUD
+  - ModelMapper
+  - RxAlamofire
   - RxSwift (~> 5.1)
   - Swinject
+  - TTGSnackbar
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - AlamofireImage
+    - AlamofireNetworkActivityIndicator
+    - MBProgressHUD
+    - ModelMapper
+    - RxAlamofire
     - RxSwift
     - Swinject
+    - TTGSnackbar
 
 SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
+  AlamofireNetworkActivityIndicator: 6564782bd7b9e6c430ae67d9277af01907b01ca4
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  ModelMapper: 0f68dd4300d0e27290c70f66492c7f795da21bcf
+  RxAlamofire: f34ddbab56fa2a36f99737f4d4ecc22288a1384f
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  TTGSnackbar: 97c033600de8a9c8f4a093f25a08543a03946bcc
 
-PODFILE CHECKSUM: f6d909d0f709e43903db529756a2f11ee7183024
+PODFILE CHECKSUM: 1a54c5417a7846ad64045106df159c2782205752
 
 COCOAPODS: 1.9.3

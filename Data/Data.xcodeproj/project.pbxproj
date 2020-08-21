@@ -15,6 +15,10 @@
 		4F3173B824EC68D7002E0823 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3173B724EC68D7002E0823 /* Domain.framework */; };
 		4F3173B924EC68D7002E0823 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3173B724EC68D7002E0823 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F3173BC24EC7EDD002E0823 /* TaskRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173BB24EC7EDD002E0823 /* TaskRemoteDataSourceImpl.swift */; };
+		4F3173CB24ED6E3E002E0823 /* TaskLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173CA24ED6E3E002E0823 /* TaskLocalDataSourceImpl.swift */; };
+		4F3173DC24EF185E002E0823 /* TaskDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173DB24EF185E002E0823 /* TaskDto.swift */; };
+		4F3173DE24EF2099002E0823 /* TaskMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173DD24EF2099002E0823 /* TaskMapper.swift */; };
+		4F3173E024EF2639002E0823 /* ApiResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173DF24EF2639002E0823 /* ApiResources.swift */; };
 		5C6BF86F84C71D3D5C9D95CF /* Pods_DataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AAD9896AB5E6D27859A8D83 /* Pods_DataTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,10 @@
 		4F3173B124EC6862002E0823 /* TaskRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepositoryImpl.swift; sourceTree = "<group>"; };
 		4F3173B724EC68D7002E0823 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3173BB24EC7EDD002E0823 /* TaskRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		4F3173CA24ED6E3E002E0823 /* TaskLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocalDataSourceImpl.swift; sourceTree = "<group>"; };
+		4F3173DB24EF185E002E0823 /* TaskDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDto.swift; sourceTree = "<group>"; };
+		4F3173DD24EF2099002E0823 /* TaskMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMapper.swift; sourceTree = "<group>"; };
+		4F3173DF24EF2639002E0823 /* ApiResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResources.swift; sourceTree = "<group>"; };
 		7AAD9896AB5E6D27859A8D83 /* Pods_DataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB56B193CF9A34FE1E3151B /* Pods-Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Data.release.xcconfig"; path = "Target Support Files/Pods-Data/Pods-Data.release.xcconfig"; sourceTree = "<group>"; };
 		945366C91B9E12A47A849FBE /* Pods_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +143,9 @@
 		4F3173AE24EC67D4002E0823 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				4F3173DA24EF1852002E0823 /* Models */,
 				4F3173BB24EC7EDD002E0823 /* TaskRemoteDataSourceImpl.swift */,
+				4F3173DF24EF2639002E0823 /* ApiResources.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -143,6 +153,7 @@
 		4F3173AF24EC67DF002E0823 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				4F3173CA24ED6E3E002E0823 /* TaskLocalDataSourceImpl.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -150,6 +161,7 @@
 		4F3173B024EC67EC002E0823 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				4F3173DD24EF2099002E0823 /* TaskMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -162,6 +174,14 @@
 				7AAD9896AB5E6D27859A8D83 /* Pods_DataTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F3173DA24EF1852002E0823 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F3173DB24EF185E002E0823 /* TaskDto.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A2D3D1F7B5629E6E7A82B3B9 /* Pods */ = {
@@ -336,7 +356,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F3173E024EF2639002E0823 /* ApiResources.swift in Sources */,
 				4F3173B224EC6862002E0823 /* TaskRepositoryImpl.swift in Sources */,
+				4F3173CB24ED6E3E002E0823 /* TaskLocalDataSourceImpl.swift in Sources */,
+				4F3173DC24EF185E002E0823 /* TaskDto.swift in Sources */,
+				4F3173DE24EF2099002E0823 /* TaskMapper.swift in Sources */,
 				4F3173BC24EC7EDD002E0823 /* TaskRemoteDataSourceImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

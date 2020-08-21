@@ -28,5 +28,13 @@ class DomainAssembly: Assembly {
                 foregroundScheduler: r.resolve(SchedulerType.self, name: "foreground")!
             )
         }
+        
+        container.register(SaveTaskUseCase.self) { r in
+            return SaveTaskUseCase(
+                repository: r.resolve(TaskRepository.self)!,
+                backgroundScheduler: r.resolve(SchedulerType.self, name: "background")!,
+                foregroundScheduler: r.resolve(SchedulerType.self, name: "foreground")!
+            )
+        }
     }
 }

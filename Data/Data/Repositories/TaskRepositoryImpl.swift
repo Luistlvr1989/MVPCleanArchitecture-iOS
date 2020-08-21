@@ -10,31 +10,39 @@ import Foundation
 import RxSwift
 import Domain
 
-public final class TaskRepositoryImpl : TaskRepository {
-    private var remoteDataSource: TaskRemoteDataSource
+public final class TaskRepositoryImpl: TaskRepository {
+    private let localDataSource: TaskLocalDataSource
+    private let remoteDataSource: TaskRemoteDataSource
     
-    public init(remoteDataSource: TaskRemoteDataSource) {
+    public init(localDataSource: TaskLocalDataSource, remoteDataSource: TaskRemoteDataSource) {
+        self.localDataSource = localDataSource
         self.remoteDataSource = remoteDataSource
     }
     
     public func getTasks() -> Single<[TaskEntity]> {
         return remoteDataSource.loadTasks()
+            .map { dtos in
+                dtos.map({ dto in dto.toEntity()
+            })
+        }
     }
     
-    /*public func getTask(id: Int) -> Single<TaskEntity> {
-        <#code#>
-    }
-    
-    public func saveTask(entity: TaskEntity) -> Single<Int> {
-        <#code#>
+    public func saveTask(entity: TaskEntity) -> Completable {
+        return localDataSource.saveTask(entity: entity)
     }
     
     public func deleteTask(id: Int) -> Completable {
-        <#code#>
-    }*/
+        return localDataSource.deleteTask(id: id)
+    }
+}
+
+public protocol TaskLocalDataSource {
+    func saveTask(entity: TaskEntity) -> Completable
+    
+    func deleteTask(id: Int) -> Completable
 }
 
 public protocol TaskRemoteDataSource {
-    func loadTasks() -> Single<[TaskEntity]>
+    func loadTasks() -> Single<[TaskDto]>
 }
 
