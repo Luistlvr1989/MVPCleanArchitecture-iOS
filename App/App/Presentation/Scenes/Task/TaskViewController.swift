@@ -38,6 +38,7 @@ class TaskViewController: UIViewController, TaskView {
     @IBAction func saveTask(_ sender: Any) {
         task.title = titleTextField.text ?? ""
         task.description = descriptionTextView.text
+        task.updated = Date()
         presenter.saveTask(task: task)
     }
     

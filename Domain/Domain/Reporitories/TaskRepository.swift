@@ -13,6 +13,4 @@ public protocol TaskRepository {
     func getTasks() -> Single<[TaskEntity]>
     
     func saveTask(entity: TaskEntity) -> Completable
-
-    func deleteTask(id: Int) -> Completable
 }

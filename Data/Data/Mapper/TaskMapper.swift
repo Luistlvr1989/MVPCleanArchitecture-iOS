@@ -15,6 +15,7 @@ public extension TaskDto {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         return TaskEntity(
+            id: self.id,
             title: self.title,
             description: self.description,
             updated: dateFormatter.date(from: self.updated)!,
@@ -25,10 +26,21 @@ public extension TaskDto {
 
 extension Task {
     func fromEntity(entity: TaskEntity) {
+        id = Int64(entity.id!)
         title = entity.title
         detail = entity.description
         modified = entity.updated
         created = entity.created
+    }
+    
+    func toEntity() -> TaskEntity {
+        return TaskEntity(
+            id: Int(self.id),
+            title: self.title!,
+            description: self.detail!,
+            updated: self.modified!,
+            created: self.created!
+        )
     }
 }
 

@@ -24,6 +24,9 @@ class HomeViewController: UIViewController, HomeView {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         presenter.loadTasks()
     }
     
@@ -41,6 +44,8 @@ class HomeViewController: UIViewController, HomeView {
         let vc = TaskViewController.newInstance(storyboard: storyboard)
         if task != nil {
             vc.task = task!
+        } else {
+            vc.task.id = tasks.count
         }
         navigationController?.pushViewController(vc, animated: true)
     }

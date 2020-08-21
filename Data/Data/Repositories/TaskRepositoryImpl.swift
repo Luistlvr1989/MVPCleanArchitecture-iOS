@@ -20,29 +20,43 @@ public final class TaskRepositoryImpl: TaskRepository {
     }
     
     public func getTasks() -> Single<[TaskEntity]> {
-        return remoteDataSource.loadTasks()
-            .map { dtos in
-                dtos.map({ dto in dto.toEntity()
+        return remoteDataSource.fetchTasks()
+            .flatMap({ dtos in
+                let entities = dtos.map({ dto in dto.toEntity() })
+                try self.localDataSource.saveTasks(entities: entities)
+                return try self.loadTasks()
             })
-        }
+    }
+    
+    private func loadTasks() throws -> Single<[TaskEntity]> {
+        let tasks = try self.localDataSource.loadTasks()
+            .map { dto in dto.toEntity() }
+        return Single.just(tasks)
     }
     
     public func saveTask(entity: TaskEntity) -> Completable {
-        return localDataSource.saveTask(entity: entity)
-    }
-    
-    public func deleteTask(id: Int) -> Completable {
-        return localDataSource.deleteTask(id: id)
+        return Completable.create { completable in
+            do {
+                try self.localDataSource.saveTask(entity: entity)
+                completable(.completed)
+            } catch {
+                completable(.error(error))
+            }
+             
+            return Disposables.create()
+        }
     }
 }
 
 public protocol TaskLocalDataSource {
-    func saveTask(entity: TaskEntity) -> Completable
+    func loadTasks() throws -> [Task]
     
-    func deleteTask(id: Int) -> Completable
+    func saveTasks(entities: [TaskEntity]) throws
+    
+    func saveTask(entity: TaskEntity) throws
 }
 
 public protocol TaskRemoteDataSource {
-    func loadTasks() -> Single<[TaskDto]>
+    func fetchTasks() -> Single<[TaskDto]>
 }
 

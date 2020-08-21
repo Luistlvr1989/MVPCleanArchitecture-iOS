@@ -25,7 +25,7 @@ class TaskPresenterImpl: TaskPresenter {
     }
     
     func saveTask(task: TaskEntity) {
-        saveTaskUseCase.buildUseCase()
+        saveTaskUseCase.buildUseCase(input: task)
             .do(onSubscribe: {
                 self.view.showProgress()
             }, onDispose: {

@@ -19,7 +19,7 @@ public final class TaskRemoteDataSourceImpl: TaskRemoteDataSource {
         fetchTasksUrl = ApiResources.BASE_URL + ApiResources.VERSION + "/5e52db362d0000f622357be6"
     }
     
-    public func loadTasks() -> Single<[TaskDto]> {
+    public func fetchTasks() -> Single<[TaskDto]> {
         return RxAlamofire.requestJSON(.get, fetchTasksUrl)
             .asSingle()
             .flatMap { (_, json) -> Single<[TaskDto]> in

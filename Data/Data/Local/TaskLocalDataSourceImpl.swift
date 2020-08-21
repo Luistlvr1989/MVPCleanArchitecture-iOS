@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 import Domain
 import CoreData
 
@@ -18,29 +17,33 @@ public final class TaskLocalDataSourceImpl: TaskLocalDataSource {
         context = CoreDataManager.shared.container.viewContext
     }
      
-    public func saveTask(entity: TaskEntity) -> Completable {
-        return Completable.create { completable in
-            let task = Task(context: self.context)
-            task.fromEntity(entity: entity)
-            
-            do {
-                try self.context.save()
-             } catch {
-                completable(.error(error))
-            }
-             
-            completable(.completed)
-             
-            return Disposables.create()
+    public func loadTasks() throws -> [Task] {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let result = try self.context.fetch(fetchRequest)
+        return result
+    }
+    
+    public func saveTasks(entities: [TaskEntity]) throws {
+        try entities.forEach { entity in
+            try self.saveTask(entity: entity)
         }
     }
-     
-    public func deleteTask(id: Int) -> Completable {
-        return Completable.create { completable in
-            
-            completable(.completed)
-            
-            return Disposables.create()
-        }
+    
+    public func saveTask(entity: TaskEntity) throws {
+        let task = try self.findOrCreateTask(id: entity.id!)
+        task.fromEntity(entity: entity)
+        try self.context.save()
+    }
+    
+    private func findOrCreateTask(id: Int) throws -> Task {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %i", id)
+        let result = try self.context.fetch(fetchRequest)
+        
+        if result.count != 0 {
+           return result[0]
+       } else {
+           return Task(context: self.context)
+       }
     }
 }
