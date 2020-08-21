@@ -9,13 +9,19 @@
 import Foundation
 
 public struct TaskEntity {
-    var id: Int? = nil
-    var title: String
-    var description: String
-    var updated: Date
-    var created: Date
+    public var id: Int?
+    public var title: String
+    public var description: String
+    public var updated: Date
+    public var created: Date
     
-    public init(id: Int?, title: String, description: String, updated: Date, created: Date){
+    public init(
+        id: Int? = nil,
+        title: String = "",
+        description: String = "",
+        updated: Date = Date(),
+        created: Date = Date()
+    ){
         self.id = id
         self.title = title
         self.description = description

@@ -13,12 +13,19 @@ import Data
 
 class DataAssembly: Assembly {
     func assemble(container: Container) {
+        container.register(TaskLocalDataSource.self) { r in
+            return TaskLocalDataSourceImpl()
+        }
+        
         container.register(TaskRemoteDataSource.self) { r in
-           return TaskRemoteDataSourceImpl()
+            return TaskRemoteDataSourceImpl()
         }
         
         container.register(TaskRepository.self) { r in
-           return TaskRepositoryImpl(remoteDataSource: r.resolve(TaskRemoteDataSource.self)!)
+            return TaskRepositoryImpl(
+                localDataSource: r.resolve(TaskLocalDataSource.self)!,
+                remoteDataSource: r.resolve(TaskRemoteDataSource.self)!
+            )
         }
     }
 }

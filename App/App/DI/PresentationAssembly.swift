@@ -13,6 +13,16 @@ import Domain
 
 class PresentationAssembly: Assembly {
     func assemble(container: Container) {
+        container.register(HomePresenter.self) { r in
+            return HomePresenterImpl(
+                getTasksUseCase: r.resolve(GetTasksUseCase.self)!
+            )
+        }
         
+        container.register(TaskPresenter.self) { r in
+            return TaskPresenterImpl(
+                saveTaskUseCase: r.resolve(SaveTaskUseCase.self)!
+            )
+        }
     }
 }

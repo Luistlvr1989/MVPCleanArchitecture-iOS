@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import Domain
+
+protocol HomeView: BaseView {
+    func refreshData(tasks: [TaskEntity])
+}
+
+protocol HomePresenter: BasePresenter {
+    func loadTasks()
+}

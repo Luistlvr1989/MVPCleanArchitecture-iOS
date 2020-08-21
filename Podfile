@@ -9,7 +9,10 @@ end
 
 def remote
     pod 'Alamofire'
+    pod 'AlamofireImage'
+    pod 'AlamofireNetworkActivityIndicator'
     pod 'RxAlamofire'
+    pod 'ModelMapper'
 end
 
 target 'App' do
@@ -18,7 +21,10 @@ target 'App' do
   
   # Pods for App
   rx_swift
+  remote
   pod 'Swinject'
+  pod 'MBProgressHUD'
+  pod "TTGSnackbar"
 
   target 'AppTests' do
     inherit! :search_paths
@@ -50,7 +56,7 @@ target 'Data' do
 
   # Pods for Data
   rx_swift
-  #remote
+  remote
 
   target 'DataTests' do
     inherit! :search_paths

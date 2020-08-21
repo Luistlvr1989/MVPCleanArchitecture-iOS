@@ -9,33 +9,29 @@
 import Foundation
 import RxSwift
 import Domain
+import Alamofire
+import RxAlamofire
 
-public final class TaskRemoteDataSourceImpl : TaskRemoteDataSource {
+public final class TaskRemoteDataSourceImpl: TaskRemoteDataSource {
+    fileprivate let fetchTasksUrl: String
+    
     public init() {
-        
+        fetchTasksUrl = ApiResources.BASE_URL + ApiResources.VERSION + "/5e52db362d0000f622357be6"
     }
     
-    public func loadTasks() -> Single<[TaskEntity]> {
-        return Single<[TaskEntity]>.create { single in
-            let result = [
-                TaskEntity(
-                    id: 100,
-                    title: "Nota 1",
-                    description: "Descripción 1",
-                    updated: Date(),
-                    created: Date()
-                ),
-                TaskEntity(
-                    id: 101,
-                    title: "Nota 2",
-                    description: "Descripción 2",
-                    updated: Date(),
-                    created: Date()
-                )
-            ]
-            single(.success(result))
-            
-            return Disposables.create()
-        }
+    public func fetchTasks() -> Single<[TaskDto]> {
+        return RxAlamofire.requestJSON(.get, fetchTasksUrl)
+            .asSingle()
+            .flatMap { (_, json) -> Single<[TaskDto]> in
+                var taskDtos: [TaskDto] = []
+                if let tasksArray = json as? [[String: AnyObject]] {
+                    for taskJson in tasksArray {
+                        let taskDto = TaskDto.from(taskJson as NSDictionary)!
+                        taskDtos.append(taskDto)
+                    }
+                }
+                
+                return .just(taskDtos)
+            }
     }
 }

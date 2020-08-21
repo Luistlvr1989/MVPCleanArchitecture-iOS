@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-public final class GetTasksUseCase : SingleUseCase {
+public final class GetTasksUseCase: SingleUseCase {
     public typealias Input = Void
     public typealias T = [TaskEntity]
     

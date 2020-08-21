@@ -11,10 +11,6 @@ import RxSwift
 
 public protocol TaskRepository {
     func getTasks() -> Single<[TaskEntity]>
-
-    /*func getTask(id: Int) -> Single<TaskEntity>
     
-    func saveTask(entity: TaskEntity) -> Single<Int>
-
-    func deleteTask(id: Int) -> Completable*/
+    func saveTask(entity: TaskEntity) -> Completable
 }
