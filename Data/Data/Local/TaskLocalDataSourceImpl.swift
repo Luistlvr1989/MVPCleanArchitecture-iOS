@@ -9,22 +9,25 @@
 import Foundation
 import RxSwift
 import Domain
+import CoreData
 
 public final class TaskLocalDataSourceImpl: TaskLocalDataSource {
+    private let context: NSManagedObjectContext
+    
     public init() {
-        
+        context = CoreDataManager.shared.container.viewContext
     }
      
     public func saveTask(entity: TaskEntity) -> Completable {
         return Completable.create { completable in
-            /*let task = Task(context: self.context)
+            let task = Task(context: self.context)
             task.fromEntity(entity: entity)
             
             do {
                 try self.context.save()
              } catch {
                 completable(.error(error))
-            }*/
+            }
              
             completable(.completed)
              

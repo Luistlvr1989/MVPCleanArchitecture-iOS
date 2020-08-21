@@ -19,6 +19,8 @@
 		4F3173DC24EF185E002E0823 /* TaskDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173DB24EF185E002E0823 /* TaskDto.swift */; };
 		4F3173DE24EF2099002E0823 /* TaskMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173DD24EF2099002E0823 /* TaskMapper.swift */; };
 		4F3173E024EF2639002E0823 /* ApiResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3173DF24EF2639002E0823 /* ApiResources.swift */; };
+		4F31740B24EF6D4B002E0823 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F31740924EF6D4B002E0823 /* ToDo.xcdatamodeld */; };
+		4F31741224EF72DD002E0823 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31741124EF72DD002E0823 /* CoreDataManager.swift */; };
 		5C6BF86F84C71D3D5C9D95CF /* Pods_DataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AAD9896AB5E6D27859A8D83 /* Pods_DataTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		4F3173DB24EF185E002E0823 /* TaskDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDto.swift; sourceTree = "<group>"; };
 		4F3173DD24EF2099002E0823 /* TaskMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMapper.swift; sourceTree = "<group>"; };
 		4F3173DF24EF2639002E0823 /* ApiResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResources.swift; sourceTree = "<group>"; };
+		4F31740A24EF6D4B002E0823 /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
+		4F31741124EF72DD002E0823 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7AAD9896AB5E6D27859A8D83 /* Pods_DataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB56B193CF9A34FE1E3151B /* Pods-Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Data.release.xcconfig"; path = "Target Support Files/Pods-Data/Pods-Data.release.xcconfig"; sourceTree = "<group>"; };
 		945366C91B9E12A47A849FBE /* Pods_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +123,7 @@
 				4F3173AD24EC67C6002E0823 /* Repositories */,
 				4F31738324E8F623002E0823 /* Data.h */,
 				4F31738424E8F623002E0823 /* Info.plist */,
+				4F31740924EF6D4B002E0823 /* ToDo.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -153,6 +158,8 @@
 		4F3173AF24EC67DF002E0823 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				4F3173FC24EF5DB4002E0823 /* Models */,
+				4F31741124EF72DD002E0823 /* CoreDataManager.swift */,
 				4F3173CA24ED6E3E002E0823 /* TaskLocalDataSourceImpl.swift */,
 			);
 			path = Local;
@@ -180,6 +187,13 @@
 			isa = PBXGroup;
 			children = (
 				4F3173DB24EF185E002E0823 /* TaskDto.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F3173FC24EF5DB4002E0823 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,7 +374,9 @@
 				4F3173B224EC6862002E0823 /* TaskRepositoryImpl.swift in Sources */,
 				4F3173CB24ED6E3E002E0823 /* TaskLocalDataSourceImpl.swift in Sources */,
 				4F3173DC24EF185E002E0823 /* TaskDto.swift in Sources */,
+				4F31740B24EF6D4B002E0823 /* ToDo.xcdatamodeld in Sources */,
 				4F3173DE24EF2099002E0823 /* TaskMapper.swift in Sources */,
+				4F31741224EF72DD002E0823 /* CoreDataManager.swift in Sources */,
 				4F3173BC24EC7EDD002E0823 /* TaskRemoteDataSourceImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +640,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4F31740924EF6D4B002E0823 /* ToDo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4F31740A24EF6D4B002E0823 /* ToDo.xcdatamodel */,
+			);
+			currentVersion = 4F31740A24EF6D4B002E0823 /* ToDo.xcdatamodel */;
+			path = ToDo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4F31737724E8F623002E0823 /* Project object */;
 }

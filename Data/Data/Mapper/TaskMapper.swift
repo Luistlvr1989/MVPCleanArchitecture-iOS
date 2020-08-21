@@ -23,7 +23,7 @@ public extension TaskDto {
     }
 }
 
-/*extension Task {
+extension Task {
     func fromEntity(entity: TaskEntity) {
         title = entity.title
         detail = entity.description
@@ -31,4 +31,4 @@ public extension TaskDto {
         created = entity.created
     }
 }
-*/
+
